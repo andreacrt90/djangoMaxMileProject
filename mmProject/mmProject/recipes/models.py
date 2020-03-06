@@ -1,14 +1,16 @@
 from django.db import models
+from ingredients.models import Ingredient
+from django.contrib.auth.models import User
 
 # main class for Recipes
 class Recipe(models.Model):
 
     # recipes type list
-    APPETIZER = 'AP'
-    FIRST_COURSE = 'FC'
-    SECOND_COURSE = 'SC'
-    SIDE_DISH = 'SD'
-    DESSERT = 'DT'
+    APPETIZER = 'Antipasto'
+    FIRST_COURSE = 'Primo'
+    SECOND_COURSE = 'Secondo'
+    SIDE_DISH = 'Contorno'
+    DESSERT = 'Dessert'
     RECIPES_TYPE = [
         (APPETIZER, 'Appetizer'),
         (FIRST_COURSE, 'First Course'),
@@ -18,9 +20,9 @@ class Recipe(models.Model):
     ]
 
     # recipes difficulty list
-    EASY_DIFF = 'ED'
-    MIDDLE_DIFF = 'MD'
-    HARD_DIFF = 'HD'
+    EASY_DIFF = 'Bassa difficoltà'
+    MIDDLE_DIFF = 'Media difficoltà'
+    HARD_DIFF = 'Alta difficoltà'
     DIFFICULTY_TYPE = [
         (EASY_DIFF, 'Easy'),
         (MIDDLE_DIFF, 'Middle'),
@@ -30,18 +32,19 @@ class Recipe(models.Model):
     # fields for recipes
     name = models.CharField(max_length=120)
     type = models.CharField(
-        max_length=2,
+        max_length=120,
         choices=RECIPES_TYPE,
         default=APPETIZER,
     )
-    author = models.CharField(max_length=120)
+    author = models.ForeignKey(User, null=True, blank=True, on_delete=models.CASCADE, editable=False)
     difficulty = models.CharField(
-        max_length=2,
+        max_length=120,
         choices=DIFFICULTY_TYPE,
         default=MIDDLE_DIFF,
     )
     description = models.TextField()
     image = models.ImageField(upload_to='images')
+    ingredients = models.ManyToManyField(Ingredient)
     nationality = models.CharField(max_length=120, blank=True)
 
     def __str__(self):

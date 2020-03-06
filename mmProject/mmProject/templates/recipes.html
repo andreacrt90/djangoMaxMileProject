@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Lista Ricette</title>
+</head>
+<body>
+    <h1>Lista Ricette</h1>
+    {% for object in object_list %}
+        <h3>{{ object.name }}</h3>
+        <h6>{{ object.type }} - {{ object.difficulty }}</h6>
+        <img src="http://localhost:8000/{{ object.image }}" />
+        <p>{{ object.description|truncatewords_html:50 }}</p>
+    {% endfor %}
+</body>
+</html>
