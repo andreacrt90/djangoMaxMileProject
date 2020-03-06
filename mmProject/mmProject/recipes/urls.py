@@ -5,6 +5,6 @@ from . import views as recipes_views
 # recipe single page
 
 urlpatterns = [
-    path('', recipes_views.recipes_list, name="list"),
-    path('recipe/', recipes_views.single_recipe, name="single")
+    #path('', recipes_views.recipes_list, name="list"),
+    #path('recipe/', recipes_views.single_recipe, name="single")
 ]
