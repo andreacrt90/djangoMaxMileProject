@@ -1,6 +1,7 @@
 from django.db import models
 from ingredients.models import Ingredient
 from django.contrib.auth.models import User
+from django.urls import reverse
 
 # main class for Recipes
 class Recipe(models.Model):
@@ -43,9 +44,14 @@ class Recipe(models.Model):
         default=MIDDLE_DIFF,
     )
     description = models.TextField()
-    image = models.ImageField(upload_to='images')
+    image = models.ImageField(upload_to='')
     ingredients = models.ManyToManyField(Ingredient)
     nationality = models.CharField(max_length=120, blank=True)
+    slug = models.SlugField(null=True)
 
     def __str__(self):
         return self.name
+
+    # best practice to obtin single recipe url
+    def get_absolute_url(self):
+        return reverse("single", kwargs={"id": self.id, "slug": self.slug})

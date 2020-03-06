@@ -1,10 +1,11 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>Ricetta</title>
-</head>
-<body>
-    <h1>Ricetta</h1>
-</body>
-</html>
+{% extends "base.html" %}
+
+<title>{% block head_title %}{{ block.super }} | {{ object.name }}{% endblock head_title %}</title>
+
+{% block content %}
+
+    <h1>{{ object.name }}</h1>
+    <img src="http://localhost:8000/images/{{ object.image }}" />
+    <p>{{ object.description }}</p>
+
+{% endblock content %}

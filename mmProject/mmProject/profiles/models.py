@@ -16,7 +16,7 @@ class Profile(models.Model):
         (FEMALE, 'Female'),
     ]
 
-    # fields for profiles    # fields for profiles
+    # fields for profiles
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     birthdate = models.DateField(blank=True)
     gender = models.CharField(

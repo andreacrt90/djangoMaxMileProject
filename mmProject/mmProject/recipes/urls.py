@@ -9,7 +9,12 @@ from .models import Recipe
 urlpatterns = [
     path('', ListView.as_view(
         queryset = Recipe.objects.all().order_by("-id"),
-        template_name = "recipes.html"
+        template_name = "recipes.html",
+        paginate_by = 5
     ), name="list"),
-    path('recipe/', recipes_views.single_recipe, name="single")
+
+    path('<int:id>/<slug:slug>/', DetailView.as_view(
+        model = Recipe,
+        template_name="recipe.html"
+    ), name="single"),
 ]

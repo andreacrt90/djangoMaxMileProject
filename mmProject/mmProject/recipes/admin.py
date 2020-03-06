@@ -6,6 +6,7 @@ from .models import Recipe
 class RecipeAdmin(admin.ModelAdmin):
     # TODO calculate all calories by ingredients
     list_display = ["__str__","type","difficulty"]
+    prepopulated_fields = {"slug": ("name",)}
 
     def save_model(self, request, obj, form, change):
         if getattr(obj, 'author', None) is None:

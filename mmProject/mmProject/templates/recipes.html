@@ -1,16 +1,27 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>Lista Ricette</title>
-</head>
-<body>
-    <h1>Lista Ricette</h1>
+{% extends "base.html" %}
+{% block content %}
+
     {% for object in object_list %}
-        <h3>{{ object.name }}</h3>
-        <h6>{{ object.type }} - {{ object.difficulty }}</h6>
-        <img src="http://localhost:8000/{{ object.image }}" />
+    <a href="{{ object.get_absolute_url }}"><h3>{{ object.name }}</h3></a>
+        <p>{{ object.type }} - {{ object.difficulty }}</p>
+        <img src="http://localhost:8000/images/{{ object.image }}" />
         <p>{{ object.description|truncatewords_html:50 }}</p>
     {% endfor %}
-</body>
-</html>
+
+    <div>
+        {% if page_obj.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Pagina {{ page_obj.number }} di {{ page_obj.paginator.num_pages }}
+        </span>
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">next</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+    </div>
+
+{% endblock content %}
