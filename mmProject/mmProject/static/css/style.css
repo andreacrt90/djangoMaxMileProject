@@ -1,0 +1,21 @@
+html, body{
+    height: 100%;
+}
+.main-container{
+    min-height: 95%;
+}
+img {
+    max-width: 200px;
+}
+.pager li{
+    display: inline;
+    padding: 5px 10px;
+    border: 1px solid grey;
+    border-radius: 10px;
+    margin: 0px 5px;
+}
+footer{
+    margin-top: 20px;
+    padding: 20px 0px;
+    background-color: lightgrey;
+}

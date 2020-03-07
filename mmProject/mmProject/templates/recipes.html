@@ -1,27 +1,41 @@
 {% extends "base.html" %}
+
+<!-- load bootstrap form style -->
+{% load bootstrap %}
+
 {% block content %}
 
-    {% for object in object_list %}
-    <a href="{{ object.get_absolute_url }}"><h3>{{ object.name }}</h3></a>
-        <p>{{ object.type }} - {{ object.difficulty }}</p>
-        <img src="http://localhost:8000/images/{{ object.image }}" />
-        <p>{{ object.description|truncatewords_html:50 }}</p>
-    {% endfor %}
+<form method="GET">
+    {{ filter.form|bootstrap }}
+    <button type="submit" class="btn btn-primary">Cerca</button>
+</form>
 
-    <div>
-        {% if page_obj.has_previous %}
-            <a href="?page=1">&laquo; first</a>
-            <a href="?page={{ page_obj.previous_page_number }}">previous</a>
-        {% endif %}
+{% for object in filter.qs %}
+    <a href="{{ object.get_absolute_url }}"><h1>{{ object.name }}</h1></a>
+    <p>{{ object.type }} - {{ object.difficulty }}</p>
+    <!-- TODO modificare con BASE_DIR -->
+    <img class="img-responsive" src="http://localhost:8000/images/{{ object.image }}"/>
+    <p>{{ object.description|truncatewords_html:50 }}</p>
+{% endfor %}
 
-        <span class="current">
+<div>
+    <nav aria-label="...">
+        <ul class="pager">
+            {% if page_obj.has_previous %}
+            <li><a href="?page=1">&laquo; first</a></li>
+            <li><a href="?page={{ page_obj.previous_page_number }}">previous</a></li>
+            {% endif %}
+
+            <li><span class="current">
             Pagina {{ page_obj.number }} di {{ page_obj.paginator.num_pages }}
-        </span>
+            </span></li>
 
-        {% if page_obj.has_next %}
-            <a href="?page={{ page_obj.next_page_number }}">next</a>
-            <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
-        {% endif %}
-    </div>
+            {% if page_obj.has_next %}
+            <li><a href="?page={{ page_obj.next_page_number }}">next</a></li>
+            <li><a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+</div>
 
 {% endblock content %}

@@ -13,11 +13,11 @@ class Recipe(models.Model):
     SIDE_DISH = 'Contorno'
     DESSERT = 'Dessert'
     RECIPES_TYPE = [
-        (APPETIZER, 'Appetizer'),
-        (FIRST_COURSE, 'First Course'),
-        (SECOND_COURSE, 'Second Course'),
-        (SIDE_DISH, 'Side Dish'),
-        (DESSERT, 'Dessert'),
+        (APPETIZER, APPETIZER),
+        (FIRST_COURSE, FIRST_COURSE),
+        (SECOND_COURSE, SECOND_COURSE),
+        (SIDE_DISH, SIDE_DISH),
+        (DESSERT, DESSERT),
     ]
 
     # recipes difficulty list
@@ -25,9 +25,9 @@ class Recipe(models.Model):
     MIDDLE_DIFF = 'Media difficoltà'
     HARD_DIFF = 'Alta difficoltà'
     DIFFICULTY_TYPE = [
-        (EASY_DIFF, 'Easy'),
-        (MIDDLE_DIFF, 'Middle'),
-        (HARD_DIFF, 'Hard'),
+        (EASY_DIFF, EASY_DIFF),
+        (MIDDLE_DIFF, MIDDLE_DIFF),
+        (HARD_DIFF, HARD_DIFF),
     ]
 
     # fields for recipes
@@ -52,6 +52,6 @@ class Recipe(models.Model):
     def __str__(self):
         return self.name
 
-    # best practice to obtin single recipe url
+    # best practice to obtain single recipe url
     def get_absolute_url(self):
         return reverse("single", kwargs={"id": self.id, "slug": self.slug})
