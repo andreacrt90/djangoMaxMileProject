@@ -1,7 +1,5 @@
 from django.urls import path
 from . import views as recipes_views
-from django.views.generic import ListView, DetailView
-from .models import Recipe
 
 # recipes list | homepage
 # recipe single page

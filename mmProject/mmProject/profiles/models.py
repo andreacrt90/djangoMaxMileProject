@@ -18,11 +18,12 @@ class Profile(models.Model):
 
     # fields for profiles
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    birthdate = models.DateField(blank=True)
+    birthdate = models.DateField(blank=True, null=True)
     gender = models.CharField(
         max_length=2,
         choices=GENDER,
-        default=FEMALE,
+        blank=True,
+        null=True,
     )
 
     @receiver(post_save, sender=User)

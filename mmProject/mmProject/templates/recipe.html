@@ -5,7 +5,7 @@
 {% block content %}
 
 <h1>{{ object.name }}</h1>
-<p>{{ object.type }} - {{ object.difficulty }}</p>
+<p>{{ object.type }} - {{ object.difficulty }} - {{ object.author }}</p>
 <!-- TODO modificare con BASE_DIR -->
 <img class="img-responsive" src="http://localhost:8000/images/{{ object.image }}"/>
 <p>{{ object.description }}</p>
