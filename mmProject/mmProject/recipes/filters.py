@@ -3,6 +3,13 @@ from .models import Recipe
 
 
 class RecipeFilter(django_filters.FilterSet):
+    """
+    Recipe filter
+    """
+    """
+    A class for apply recipes filter in homepage.
+    ...
+    """
 
     class Meta:
         model = Recipe

@@ -1,14 +1,23 @@
-from django.shortcuts import render
-from django.views.generic import ListView, DetailView
 from .models import Recipe
 from .filters import RecipeFilter
 from django.shortcuts import get_object_or_404
-
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render
 
 
 def recipe_list_view(request, **kwargs):
+    """
+    The function to view and filter the recipes list in homepage.
+    Parameters
+    ----------
+    request
+        the HTTP request made
+
+    Returns
+    -------
+    render
+        the view to render in HTML file
+    """
     queryset_list = Recipe.objects.all().order_by("-id")
     filtered = RecipeFilter(request.GET, queryset=queryset_list)
     filtered_qs = filtered.qs
@@ -29,9 +38,21 @@ def recipe_list_view(request, **kwargs):
     return render(request, "recipes.html", context)
 
 
-
-
 def recipe_detail_view(request, id=None, **kwargs):
+    """
+    The function to view a single recipe page.
+    Parameters
+    ----------
+    request
+        the HTTP request made
+    id: int
+        the id of the recipe to view
+
+    Returns
+    -------
+    render
+        the view to render in HTML file
+    """
     instance = get_object_or_404(Recipe, id=id)
     context = {
         "object": instance,

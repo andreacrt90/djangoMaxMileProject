@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="d8f93bea-28de-4dd3-aef9-813aacd62c4a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mmProject/mmProject/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/mmProject/mmProject/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mmProject/mmProject/ingredients/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/mmProject/mmProject/ingredients/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mmProject/mmProject/ingredients/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/mmProject/mmProject/ingredients/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mmProject/mmProject/mmProject/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/mmProject/mmProject/mmProject/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mmProject/mmProject/profiles/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/mmProject/mmProject/profiles/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mmProject/mmProject/profiles/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/mmProject/mmProject/profiles/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mmProject/mmProject/recipes/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/mmProject/mmProject/recipes/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mmProject/mmProject/recipes/filters.py" beforeDir="false" afterPath="$PROJECT_DIR$/mmProject/mmProject/recipes/filters.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mmProject/mmProject/recipes/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/mmProject/mmProject/recipes/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mmProject/mmProject/recipes/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/mmProject/mmProject/recipes/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mmProject/mmProject/recipes/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/mmProject/mmProject/recipes/views.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="db" type="feb32156:DbDataSourceImpl" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="CSS File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1Yd3HbiqIc4jCMhWtiu4g2n2acj" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/mmProject/mmProject/recipes" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Andrea\Django\djangoMaxMileProject\mmProject\mmProject\recipes" />
+      <recent name="C:\Users\Andrea\Django\djangoMaxMileProject\mmProject\mmProject\recipes\static\recipes" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Andrea\Django\djangoMaxMileProject\mmProject\mmProject\recipes" />
+    </key>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d8f93bea-28de-4dd3-aef9-813aacd62c4a" name="Default Changelist" comment="" />
+      <created>1583258556190</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1583258556190</updated>
+      <workItem from="1583258564580" duration="2350000" />
+      <workItem from="1583261477004" duration="679000" />
+      <workItem from="1583353237328" duration="6160000" />
+      <workItem from="1583438740106" duration="7455000" />
+      <workItem from="1583482283771" duration="3631000" />
+      <workItem from="1583487740852" duration="61000" />
+      <workItem from="1583487860788" duration="29929000" />
+      <workItem from="1583570198060" duration="29977000" />
+      <workItem from="1583697022890" duration="11887000" />
+      <workItem from="1583744897970" duration="26303000" />
+      <workItem from="1583825126109" duration="12361000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="726" y="323" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1583490804192">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="726" y="323" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1583490804192" />
+    <state width="196" height="457" key="HiddenNamespacesPopup" timestamp="1583623975702">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="196" height="457" key="HiddenNamespacesPopup/0.0.1920.1040@0.0.1920.1040" timestamp="1583623975702" />
+    <state x="407" y="138" key="SettingsEditor" timestamp="1583491112304">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="407" y="138" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1583491112304" />
+    <state x="888" y="464" key="com.intellij.ide.util.TipDialog" timestamp="1583261482911">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="888" y="464" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1583261482911" />
+    <state x="656" y="118" width="607" height="804" key="find.popup" timestamp="1583871305100">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="656" y="118" width="607" height="804" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1583871305100" />
+  </component>
+</project>

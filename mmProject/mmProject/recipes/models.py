@@ -6,8 +6,35 @@ from django.urls import reverse
 
 # main class for Recipes
 class Recipe(models.Model):
+    """
+    model for Recipe
+    """
+    """
+    A class used to represent model for recipes.
+    ...
 
-    # recipes type list
+    Attributes
+    ----------
+    name : char
+        represent the name of the recipe
+    type : char
+        represent the type of recipe
+    author : User
+        represent the user that created the recipe
+    difficulty : char
+        represent the difficulty of recipe
+    description : text
+        a long description for recipe
+    image : image
+        the upload image for recipe
+    ingredients : array
+        a list of ingredients that make recipe
+    nationality : char
+        represent the origin country of the recipe
+    slug : char
+        a short url for the recipe page
+    """
+
     APPETIZER = 'Antipasto'
     FIRST_COURSE = 'Primo'
     SECOND_COURSE = 'Secondo'
@@ -55,4 +82,15 @@ class Recipe(models.Model):
 
     # obtain single recipe url
     def get_absolute_url(self):
+        """
+        Parameters
+        ----------
+        self : Recipe
+            the instance of this recipe
+
+        Returns
+        -------
+        url: char
+            represent the absolute url of the recipe page
+        """
         return reverse("single", kwargs={"id": self.id, "slug": self.slug})
