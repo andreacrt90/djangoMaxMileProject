@@ -5,37 +5,68 @@
 
 {% block content %}
 
-<form method="GET">
-    {{ filter.form|bootstrap }}
-    <button type="submit" class="btn btn-primary">Cerca</button>
-</form>
+<div class="row">
+    <div class="col-3">
+        <div id="filter-container">
+            <form method="GET">
+                {{ filter.form|bootstrap }}
+                <button type="submit" class="btn btn-primary">Cerca</button>
+            </form>
+        </div>
+    </div>
+    <div class="col-9">
+        <div id="recipes-container">
+            {% for object in object_list %}
+                <div class="recipe">
+                    <a href="{{ object.get_absolute_url }}"><h2>{{ object.name }}</h2></a>
+                    <p class="title-info">
+                        <span class="type">{{ object.type }}</span> -
+                        <span class="difficulty">{{ object.difficulty }}</span> -
+                        <span class="author">Realizzata da {{ object.author.first_name }} {{ object.author.last_name }}</span>
+                    </p>
+                    <div class="row">
+                        <div class="col-4 image-div">
+                            <a href="{{ object.get_absolute_url }}">
+                                <div class="recipe-image" style="background-image: url('{{ BASE_DIR }}/images/{{ object.image }}')"></div>
+                            </a>
+                        </div>
+                        <div class="col-3 ingredients">
+                            <p>Ingredienti:</p>
+                            {% for ingredient in object.ingredients.all %}
+                                <b>{{ ingredient }}</b><br />
+                            {% endfor %}
+                        </div>
+                        <div class="col-5 country">
+                            <p>Nazionalità:</p>
+                            <b>{{ object.nationality }}</b>
+                        </div>
+                    </div>
+                    <div class="description">{{ object.description|truncatewords_html:50 }}</div>
+                </div>
+            {% endfor %}
 
-{% for object in filter.qs %}
-    <a href="{{ object.get_absolute_url }}"><h1>{{ object.name }}</h1></a>
-    <p>{{ object.type }} - {{ object.difficulty }} - {{ object.author }}</p>
-    <!-- TODO modificare con BASE_DIR -->
-    <img class="img-responsive" src="http://localhost:8000/images/{{ object.image }}"/>
-    <p>{{ object.description|truncatewords_html:50 }}</p>
-{% endfor %}
+            <div id="pagination">
+                <nav aria-label="...">
+                    <ul class="pager">
+                    {% if object_list.has_previous %}
+                        <li><a href="?page=1">&laquo; Prima</a></li>
+                        <li><a href="?page={{ object_list.previous_page_number }}">Precedente</a></li>
+                    {% endif %}
 
-<div>
-    <nav aria-label="...">
-        <ul class="pager">
-            {% if page_obj.has_previous %}
-            <li><a href="?page=1">&laquo; first</a></li>
-            <li><a href="?page={{ page_obj.previous_page_number }}">previous</a></li>
-            {% endif %}
+                    <li><span class="current">
+                        Pagina {{ object_list.number }} di {{ object_list.paginator.num_pages }}
+                    </span></li>
 
-            <li><span class="current">
-            Pagina {{ page_obj.number }} di {{ page_obj.paginator.num_pages }}
-            </span></li>
+                    {% if object_list.has_next %}
+                        <li><a href="?page={{ object_list.next_page_number }}">Prossima</a></li>
+                        <li><a href="?page={{ object_list.paginator.num_pages }}">Ultima &raquo;</a></li>
+                    {% endif %}
+                    </ul>
+                </nav>
+            </div>
 
-            {% if page_obj.has_next %}
-            <li><a href="?page={{ page_obj.next_page_number }}">next</a></li>
-            <li><a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a></li>
-            {% endif %}
-        </ul>
-    </nav>
+        </div>
+    </div>
 </div>
 
 {% endblock content %}

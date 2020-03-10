@@ -18,7 +18,6 @@ class RecipeAdmin(admin.ModelAdmin):
             calories = calories + ingredient.calories
         return calories
 
-
     class Meta:
         model = Recipe
 

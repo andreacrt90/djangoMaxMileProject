@@ -4,10 +4,29 @@
 
 {% block content %}
 
-<h1>{{ object.name }}</h1>
-<p>{{ object.type }} - {{ object.difficulty }} - {{ object.author }}</p>
-<!-- TODO modificare con BASE_DIR -->
-<img class="img-responsive" src="http://localhost:8000/images/{{ object.image }}"/>
-<p>{{ object.description }}</p>
+<div class="recipe">
+    <h2>{{ object.name }}</h2>
+    <p class="title-info">
+        <span class="type">{{ object.type }}</span> -
+        <span class="difficulty">{{ object.difficulty }}</span> -
+        <span class="author">Realizzata da {{ object.author.first_name }} {{ object.author.last_name }}</span>
+    </p>
+    <div class="row">
+        <div class="col-4 image-div">
+            <div class="recipe-image" style="background-image: url('{{ BASE_DIR }}/images/{{ object.image }}')"></div>
+        </div>
+        <div class="col-3 ingredients">
+            <p>Ingredienti:</p>
+            {% for ingredient in object.ingredients.all %}
+                <b>{{ ingredient }}</b><br />
+            {% endfor %}
+        </div>
+        <div class="col-5 country">
+            <p>Nazionalità:</p>
+            <b>{{ object.nationality }}</b>
+        </div>
+    </div>
+    <div class="description">{{ object.description }}</div>
+</div>
 
 {% endblock content %}

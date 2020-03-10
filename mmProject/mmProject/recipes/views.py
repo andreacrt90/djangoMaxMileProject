@@ -2,19 +2,39 @@ from django.shortcuts import render
 from django.views.generic import ListView, DetailView
 from .models import Recipe
 from .filters import RecipeFilter
+from django.shortcuts import get_object_or_404
+
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.shortcuts import render
 
 
-class RecipeListView(ListView):
-    model = Recipe
-    queryset = Recipe.objects.all().order_by("-id")
-    template_name = "recipes.html"
-    paginate_by = 5
+def recipe_list_view(request, **kwargs):
+    queryset_list = Recipe.objects.all().order_by("-id")
+    filtered = RecipeFilter(request.GET, queryset=queryset_list)
+    filtered_qs = filtered.qs
+    paginator = Paginator(filtered_qs, 5)
+    page = request.GET.get('page', 1)
+    try:
+        queryset = paginator.page(page)
+    except PageNotAnInteger:
+        queryset = paginator.page(1)
+    except EmptyPage:
+        queryset = paginator.page(paginator.num_pages)
+    context = {
+        "paginator": paginator,
+        "title": "list",
+        "filter": filtered,
+        "object_list": queryset
+    }
+    return render(request, "recipes.html", context)
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['filter'] = RecipeFilter(self.request.GET, queryset=self.get_queryset())
-        return context
 
-class RecipeDetailView(DetailView):
-    model = Recipe
-    template_name="recipe.html"
+
+
+def recipe_detail_view(request, id=None, **kwargs):
+    instance = get_object_or_404(Recipe, id=id)
+    context = {
+        "object": instance,
+        "title": "single"
+    }
+    return render(request, "recipe.html", context)

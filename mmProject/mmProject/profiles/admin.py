@@ -6,8 +6,6 @@ from ingredients.models import Ingredient
 from .models import Profile
 
 class ProfileAdmin(admin.ModelAdmin):
-    # TODO calculate all recipes done by user
-    # TODO calculate all ingredients used by user
     list_display = ["user","birthdate","gender","recipes_created_by_user","ingredients_used_by_user"]
 
     def recipes_created_by_user(self, obj):

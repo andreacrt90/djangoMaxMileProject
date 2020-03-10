@@ -3,15 +3,59 @@ html, body{
 }
 .main-container{
     min-height: 95%;
+    margin: 20px auto;
 }
-img {
-    max-width: 200px;
+#filter-container{
+    padding-right: 10px;
+}
+#filter-container button{
+    width: 100%;
+}
+
+.recipe{
+    padding-bottom: 20px;
+}
+.recipe .row{
+    margin-left: 0px;
+}
+.recipe .row{
+    margin-left: 0px;
+}
+.recipe .image-div{
+    padding-left: 0px;
+    padding-right: 0px;
+}
+.recipe-image {
+    height: 200px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.recipe .title-info{
+    font-size: 14px;
+}
+.recipe .title-info .type{
+    font-weight: bold;
+    color: green;
+}
+.recipe .title-info .difficulty{
+    color: black;
+}
+.recipe .title-info .author{
+    color: grey;
+}
+.recipe .description{
+    padding: 10px 0px;
+}
+
+#pagination{
+    float: right;
 }
 .pager li{
     display: inline;
+    color: grey;
     padding: 5px 10px;
-    border: 1px solid grey;
-    border-radius: 10px;
+    border: 1px solid lightgrey;
     margin: 0px 5px;
 }
 footer{

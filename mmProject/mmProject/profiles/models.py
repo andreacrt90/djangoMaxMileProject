@@ -1,9 +1,9 @@
 from django.db import models
 # profiles is a one-to-one extension of users
 from django.contrib.auth.models import User
-# signals guarantee update sync between users and profiles
-from django.db.models.signals import post_save
 from django.dispatch import receiver
+
+from django.db.models.signals import post_save
 
 # main class for Profile
 class Profile(models.Model):
@@ -22,18 +22,15 @@ class Profile(models.Model):
     gender = models.CharField(
         max_length=2,
         choices=GENDER,
-        blank=True,
-        null=True,
+        default=MALE
     )
 
     @receiver(post_save, sender=User)
     def create_user_profile(sender, instance, created, **kwargs):
-        # TODO modificare con check sui privilegi admin
         if created and instance.username != 'admin':
             Profile.objects.create(user=instance)
 
     @receiver(post_save, sender=User)
     def save_user_profile(sender, instance, **kwargs):
-        # TODO modificare con check sui privilegi admin
         if instance.username != 'admin':
             instance.profile.save()
